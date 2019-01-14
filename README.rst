@@ -2,8 +2,8 @@
    :target: https://pypi.org/project/miniball/
    :alt: miniball on PyPI
 
-.. image:: https://travis-ci.org/marmakoide/miniball.svg?branch=master
-   :target: https://travis-ci.org/marmakoide/miniball
+.. image:: https://travis-ci.com/marmakoide/miniball.svg?branch=master
+   :target: https://travis-ci.com/marmakoide/miniball
    :alt: miniball on TravisCI
    
 .. image:: https://img.shields.io/badge/license-MIT-green.svg
