@@ -1,3 +1,15 @@
+.. image:: https://img.shields.io/pypi/v/miniball.svg
+   :target: https://pypi.org/project/miniball/
+   :alt: miniball on PyPI
+
+.. image:: https://travis-ci.org/marmakoide/miniball.svg?branch=master
+   :target: https://travis-ci.org/marmakoide/miniball
+   :alt: miniball on TravisCI
+   
+.. image:: https://img.shields.io/badge/license-MIT-green.svg
+   :target: https://github.com/marmakoide/miniball/blob/master/LICENSE
+   :alt: MIT License badge
+
 ========
 miniball
 ========
