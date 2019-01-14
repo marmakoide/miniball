@@ -2,6 +2,9 @@
 A Python module to efficiently compute the smallest bounding ball of a point 
 set, in arbitrary number of dimensions.
 
+The algorithm runs in approximatively linear time in respects to the number of
+input points.
+
 ## Implementation notes
 
 The algorithm implemented is Welzl's algorithm. It is a pure Python implementation,
