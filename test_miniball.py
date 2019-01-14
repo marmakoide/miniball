@@ -25,10 +25,11 @@ import miniball
 
 
 def test_bounding_ball_contains_point_set():
-	for n in range(2, 10):
+	# Check that the computed bounding ball contains all the input points
+	for n in range(1, 10):
 		for count in range(2, n + 10):
 			S = numpy.random.randn(count, n)
 			C, r = miniball.get_bounding_ball(S)
 
-			assert numpy.all(numpy.sum((S - C) ** 2, axis = 1) < r ** 2)
+			assert numpy.all(numpy.sum((S - C) ** 2, axis = 1) - r ** 2 < 1e-12)
 
