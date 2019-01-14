@@ -50,7 +50,7 @@ def test_bounding_ball_optimality():
 			# Generate points inside the support sphere
 			S = numpy.random.randn(count - S_support.shape[0], n)
 			S /= numpy.sqrt(numpy.sum(S ** 2, axis = 1))[:,None]
-			S *= ((.5 * r_support) * numpy.random.rand(count - S_support.shape[0], 1))
+			S *= ((.9 * r_support) * numpy.random.rand(count - S_support.shape[0], 1))
 			S = S + C_support
 				
 			# Get the bounding sphere
