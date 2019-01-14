@@ -3,7 +3,8 @@ A Python module to efficiently compute the smallest bounding ball of a point
 set, in arbitrary number of dimensions.
 
 The algorithm runs in approximatively linear time in respects to the number of
-input points.
+input points. This is NOT a derivative nor a port of 
+[Bernd Gaertner's C++ library](https://people.inf.ethz.ch/gaertner/subdir/software/miniball.html).
 
 ## Implementation notes
 
