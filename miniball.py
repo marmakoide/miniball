@@ -38,7 +38,7 @@ def get_circumsphere(S):
 
 
 
-def get_bouding_ball(S):
+def get_bounding_ball(S):
 	def circle_contains(D, p):
 		c, r = D
 		return numpy.sum((p - c) ** 2) <= r ** 2
