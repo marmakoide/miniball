@@ -39,7 +39,8 @@ Here is how you can get the smallest bounding ball of a set of points
 	>>> S = numpy.random.randn(100, 2)
 	>>> C, r2 = miniball.get_bounding_ball(S)
 
-And that's it ! miniball does only one thing with one function.
+The center of the bounding ball is C, its radius is the square root of r2. And 
+that's it ! miniball does only one thing with one function.
 
 Implementation notes
 ====================
