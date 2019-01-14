@@ -35,7 +35,7 @@ miniball_classifiers = [
 	'Topic :: Utilities',
 ]
 
-with open('README.md', 'r') as f:
+with open('README.rst', 'r') as f:
 	miniball_long_description = f.read()
 
 setup(
