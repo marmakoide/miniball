@@ -25,7 +25,7 @@ import random
 
 
 __author__  = 'Alexandre Devert <marmakoide@hotmail.fr>'
-__version__ = '1.0.0'
+__version__ = '1.0.2'
 
 
 

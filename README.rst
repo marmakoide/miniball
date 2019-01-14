@@ -14,10 +14,18 @@ This project is licensed under the MIT License
 Requirements
 ============
 
-miniball 1.0.0 requires
+miniball 1.0 requires
 
 * Python 2.7, >=3.4
 * Numpy
+
+Installation
+============
+
+.. code-block:: console
+
+	$ pip install miniball
+
 
 Usage
 =====

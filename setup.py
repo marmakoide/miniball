@@ -30,7 +30,9 @@ miniball_classifiers = [
 	'Programming Language :: Python :: 2',
 	'Programming Language :: Python :: 3',
 	'Intended Audience :: Developers',
+	'Intended Audience :: Science/Research',
 	'License :: OSI Approved :: MIT License',
+	'Topic :: Scientific/Engineering :: Mathematics',
 	'Topic :: Software Development :: Libraries',
 	'Topic :: Utilities',
 ]
