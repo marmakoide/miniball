@@ -32,10 +32,10 @@ def test_bounding_ball_contains_point_set():
 			S = numpy.random.randn(count, n)
 
 			# Get the bounding sphere
-			C, r = miniball.get_bounding_ball(S)
+			C, r2 = miniball.get_bounding_ball(S)
 
 			# Check that all points are inside the bounding sphere up to machine precision
-			assert numpy.all(numpy.sum((S - C) ** 2, axis = 1) - r ** 2 < 1e-12)
+			assert numpy.all(numpy.sum((S - C) ** 2, axis = 1) - r2 < 1e-12)
 
 
 
@@ -45,21 +45,20 @@ def test_bounding_ball_optimality():
 		for count in range(n + 2, n + 30):
 			# Generate a support sphere from n+1 points
 			S_support = numpy.random.randn(n + 1, n)
-			C_support, r_support = miniball.get_bounding_ball(S_support)
+			C_support, r2_support = miniball.get_bounding_ball(S_support)
 			
 			# Generate points inside the support sphere
 			S = numpy.random.randn(count - S_support.shape[0], n)
 			S /= numpy.sqrt(numpy.sum(S ** 2, axis = 1))[:,None]
-			S *= ((.9 * r_support) * numpy.random.rand(count - S_support.shape[0], 1))
+			S *= ((.9 * numpy.sqrt(r2_support)) * numpy.random.rand(count - S_support.shape[0], 1))
 			S = S + C_support
 				
 			# Get the bounding sphere
-			C, r = miniball.get_bounding_ball(numpy.concatenate([S, S_support], axis = 0))
+			C, r2 = miniball.get_bounding_ball(numpy.concatenate([S, S_support], axis = 0))
 
 			# Check that the bounding sphere and the support sphere are equivalent
 			# up to machine precision.
-			print count, r, r_support
-			assert numpy.allclose(r, r_support)
+			assert numpy.allclose(r2, r2_support)
 			assert numpy.allclose(C, C_support)
 
 
