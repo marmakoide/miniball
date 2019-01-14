@@ -39,6 +39,9 @@ def get_circumsphere(S):
 
 
 def get_bounding_ball(S):
+	# Iterative implementation of Welzl's algorithm, see
+	# "Smallest enclosing disks (balls and ellipsoids)" Emo Welzl 1991
+
 	def circle_contains(D, p):
 		c, r = D
 		return numpy.sum((p - c) ** 2) <= r ** 2
