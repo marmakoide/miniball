@@ -24,12 +24,26 @@ import random
 
 
 
-__author__ = "Alexandre Devert <marmakoide@hotmail.fr>"
-__version__ = "1.0.0"
+__author__  = 'Alexandre Devert <marmakoide@hotmail.fr>'
+__version__ = '1.0.0'
 
 
 
 def get_circumsphere(S):
+	"""
+	Computes the circumsphere of a set of points
+
+	Parameters
+	----------
+	S : (M, N) ndarray, where 1 <= M <= N + 1
+		The input points
+
+	Returns
+	-------
+	C, r2 : ((2) ndarray, float)
+		The center and the squared radius of the circumsphere 
+	"""
+
 	U = S[1:] - S[0] 
 	B = numpy.sqrt(numpy.sum(U ** 2, axis = 1))
 	U /= B[:,None]
@@ -39,6 +53,24 @@ def get_circumsphere(S):
 
 
 def get_bounding_ball(S, epsilon = 1e-7):
+	"""
+	Computes the smallest bounding ball of a set of points
+
+	Parameters
+	----------
+	S : (M, N) ndarray, where 1 <= M <= N + 1
+		The input points
+
+	epsilon : float
+		Tolerance used when testing if a set of point belongs to the same sphere.
+		Default is 1e-7
+
+	Returns
+	-------
+	C, r2 : ((2) ndarray, float)
+		The center and the squared radius of the circumsphere 
+	"""
+
 	# Iterative implementation of Welzl's algorithm, see
 	# "Smallest enclosing disks (balls and ellipsoids)" Emo Welzl 1991
 
