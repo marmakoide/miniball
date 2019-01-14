@@ -1,11 +1,8 @@
 language: python
 python:
-	- "2.7"
+  - "2.7"
 install:
-	- pip install nose
-	- pip install .
+  - pip install nose
+  - pip install .
 script:
-	- nosetests
-cache:
-	pip: true
-
+  - nosetests
