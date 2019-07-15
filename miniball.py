@@ -47,8 +47,11 @@ def get_circumsphere(S):
 	U = S[1:] - S[0] 
 	B = numpy.sqrt(numpy.sum(U ** 2, axis = 1))
 	U /= B[:,None]
-	C = numpy.dot(numpy.linalg.solve(numpy.inner(U, U), .5 * B), U)
-	return C + S[0], numpy.sum(C ** 2)
+	B /= 2
+	C = numpy.dot(numpy.linalg.solve(numpy.inner(U, U), B), U)
+	r2 = numpy.sum(C ** 2)
+	C += S[0]
+	return C, r2
 
 
 
