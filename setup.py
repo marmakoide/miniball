@@ -21,8 +21,6 @@
 
 from setuptools import setup
 
-import miniball
-
 
 
 miniball_classifiers = [
@@ -42,7 +40,7 @@ with open('README.rst', 'r') as f:
 
 setup(
 	name = 'miniball',
-	version = miniball.__version__,
+	version = '1.0.3',
 	author = 'Alexandre Devert',
 	author_email = 'marmakoide@hotmail.fr',
 	url = 'https://github.com/marmakoide/miniball',
