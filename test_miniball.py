@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019 Alexandre Devert
+# Copyright (c) 2019-2020 Alexandre Devert
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,20 @@
 
 import numpy
 import miniball
+
+
+
+def test_integer_coordinates():
+	# Check that integer coordinates are properly handled
+	for n in range(1, 10):
+		S_int = numpy.random.randint(-1000, 1500, (100, 2))
+		C_int, r2_int = miniball.get_bounding_ball(S_int)
+
+		S = S_int.astype(float)
+		C, r2 = miniball.get_bounding_ball(S)
+
+		assert numpy.allclose(C, C_int)
+		assert numpy.allclose(r2, r2_int)
 
 
 
@@ -60,5 +74,3 @@ def test_bounding_ball_optimality():
 			# up to machine precision.
 			assert numpy.allclose(r2, r2_support)
 			assert numpy.allclose(C, C_support)
-
-

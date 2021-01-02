@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019 Alexandre Devert
+# Copyright (c) 2019-2020 Alexandre Devert
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -122,7 +122,7 @@ def get_bounding_ball(S, epsilon = 1e-7):
 				node.D = node.right.D
 				node.left, node.right = None, None
 
+	S = S.astype(float, copy = False)
 	root = Node(range(S.shape[0]), [])
 	traverse(root)	
 	return root.D
-
