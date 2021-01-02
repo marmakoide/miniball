@@ -42,7 +42,7 @@ Installation
 Usage
 =====
 
-Here is how you can get the smallest bounding ball of a set of points
+Here is how you can get the smallest bounding ball of a set of points S
 
 .. code-block:: pycon
 
@@ -51,8 +51,11 @@ Here is how you can get the smallest bounding ball of a set of points
 	>>> S = numpy.random.randn(100, 2)
 	>>> C, r2 = miniball.get_bounding_ball(S)
 
-The center of the bounding ball is C, its radius is the square root of r2. And 
-that's it ! miniball does only one thing with one function.
+The center of the bounding ball is C, its radius is the square root of r2. 
+The input coordinates S can be integer, they will automatically cast to floating
+point internally.
+
+And that's it ! miniball does only one thing with one function.
 
 Implementation notes
 ====================
@@ -65,3 +68,12 @@ in an iterative fashion. Python have an hard-coded recursion limit, therefore
 a recursive implementation of Welzl's algorithm would have an artificially limited
 number of point it could process.
 
+Authors
+=======
+
+* **Alexandre Devert** - *Initial work* - [marmakoide](https://github.com/marmakoide)
+
+License
+=======
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
