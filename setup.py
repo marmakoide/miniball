@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019 Alexandre Devert
+# Copyright (c) 2019-2020 Alexandre Devert
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -40,7 +40,7 @@ with open('README.rst', 'r') as f:
 
 setup(
 	name = 'miniball',
-	version = '1.0.3',
+	version = '1.0.4',
 	author = 'Alexandre Devert',
 	author_email = 'marmakoide@hotmail.fr',
 	url = 'https://github.com/marmakoide/miniball',
