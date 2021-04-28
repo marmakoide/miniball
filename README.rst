@@ -110,9 +110,9 @@ number of point it could process.
 Authors
 =======
 
-* **Alexandre Devert** - *Initial work* - [marmakoide](https://github.com/marmakoide)
+* **Alexandre Devert** - *Initial work* - `marmakoide <https://github.com/marmakoide>`__
 
 License
 =======
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the `LICENSE <LICENSE>`__ file for details
