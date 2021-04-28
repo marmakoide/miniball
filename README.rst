@@ -77,7 +77,7 @@ Repeatability
 -------------
 
 The algorithm to compute bounding balls relies on a pseudo-random number generator.
-Although the algorithms return an exact solution, it is only exact up to the epsilon
+Although the algorithms return an exact solution, it is only exact up to the ``epsilon``
 parameter. As a consequence, running the ``get_bounding_ball`` function twice on 
 the same input might not return exactly the same output.
 
