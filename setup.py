@@ -72,5 +72,5 @@ setup(
     long_description=miniball_long_description,
     license="MIT",
     classifiers=miniball_classifiers,
-    python_requires=">=2.7, !=3.0.*, !=3.1.*",
+    python_requires=">=3.5",
 )
