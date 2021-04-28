@@ -23,6 +23,23 @@ import numpy
 import miniball
 
 
+def test_repeatability():
+    # Check that we can have repeatable results when providing the RNG
+    epsilon = 1e-5
+    rng_seed = 42
+
+    S = numpy.random.randn(100, 2)
+    C_a, r2_a = miniball.get_bounding_ball(
+        S, rng=numpy.random.default_rng(seed=rng_seed)
+    )
+    C_b, r2_b = miniball.get_bounding_ball(
+        S, rng=numpy.random.default_rng(seed=rng_seed)
+    )
+
+    assert (C_a == C_b).all()
+    assert (r2_a == r2_b).all()
+
+
 def test_integer_coordinates():
     # Check that integer coordinates are properly handled
     for n in range(1, 10):
