@@ -73,14 +73,13 @@ to control that precision, it is set to 1e-7 by default.
 	>>> C, r2 = miniball.get_bounding_ball(S, epsilon=1e-7)
 
 
-
 Repeatability
 -------------
 
 The algorithm to compute bounding balls relies on a pseudo-random number generator.
 Although the algorithms return an exact solution, it is only exact up to the epsilon
-parameter. As a consequence, running the get_bounding_ball function twice on the same
-input might not return exactly the same output.
+parameter. As a consequence, running the ``get_bounding_ball`` function twice on 
+the same input might not return exactly the same output.
 
 By default, each call to ``get_bounding_ball`` pull out a new, freshly seeded 
 pseudo-random number generator. Therefore, if you wish to get repeatable results 
