@@ -1,14 +1,24 @@
 language: python
 python:
-  - "2.7"
-  - "3.4"
-  - "3.5"
-  - "3.6"
-  - "3.7"
-  - "3.8"
-  - "3.9"
+  - 2.7
+  - 3.4
+  - 3.5
+  - 3.6
+  - 3.7
+  - 3.8
+  - 3.9
+env:
+  - NUMPY_VERSION=1.17.0
+  - NUMPY_VERSION=1.18.0
+  - NUMPY_VERSION=1.19.0
+  - NUMPY_VERSION=1.20.0   
 install:
+  - virtualenv --python=python venv
+  - source venv/bin/activate
+  - python -m pip install -U pip
+  - pip install -U wheel
+  - pip install numpy==$NUMPY_VERSION
   - pip install pytest
   - pip install .
 script:
-  - pytest
+  - python -m pytest
