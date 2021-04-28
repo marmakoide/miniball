@@ -20,7 +20,6 @@
 # SOFTWARE.
 
 import numpy
-import random
 
 
 __author__ = "Alexandre Devert <marmakoide@hotmail.fr>"
@@ -106,7 +105,7 @@ def get_bounding_ball(S, epsilon=1e-7):
             if len(node.P) == 0 or len(node.R) >= S.shape[1] + 1:
                 node.D = get_boundary(node.R)
             elif node.left is None:
-                node.pivot = random.choice(node.P)
+                node.pivot = numpy.random.choice(node.P)
                 node.left = Node(list(set(node.P) - set([node.pivot])), node.R)
                 stack.extend((node, node.left))
             elif node.right is None:
