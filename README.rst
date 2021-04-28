@@ -26,7 +26,7 @@ This project is licensed under the MIT License
 Requirements
 ============
 
-miniball 1.0 requires
+miniball 1.1 requires
 
 * Python 2.7, >=3.4
 * Numpy >= 1.7
