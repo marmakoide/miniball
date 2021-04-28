@@ -51,7 +51,7 @@ def get_circumsphere(S):
     return C, r2
 
 
-def get_bounding_ball(S, epsilon=1e-7):
+def get_bounding_ball(S, epsilon=1e-7, rng=numpy.random.default_rng()):
     """
     Computes the smallest bounding ball of a set of points
 
@@ -63,6 +63,10 @@ def get_bounding_ball(S, epsilon=1e-7):
     epsilon : float
             Tolerance used when testing if a set of point belongs to the same sphere.
             Default is 1e-7
+
+    rng : numpy.random.Generator
+        Pseudo-random number generator used internally. Default is the one default
+        one provided by numpy.
 
     Returns
     -------
@@ -105,7 +109,7 @@ def get_bounding_ball(S, epsilon=1e-7):
             if len(node.P) == 0 or len(node.R) >= S.shape[1] + 1:
                 node.D = get_boundary(node.R)
             elif node.left is None:
-                node.pivot = numpy.random.choice(node.P)
+                node.pivot = rng.choice(node.P)
                 node.left = Node(list(set(node.P) - set([node.pivot])), node.R)
                 stack.extend((node, node.left))
             elif node.right is None:
