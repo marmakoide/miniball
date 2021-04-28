@@ -42,7 +42,7 @@ Installation
 Usage
 =====
 
-Here is how you can get the smallest bounding ball of a set of points S
+Here is how you can get the smallest bounding ball of a set of points ``S``
 
 .. code-block:: pycon
 
@@ -51,11 +51,50 @@ Here is how you can get the smallest bounding ball of a set of points S
 	>>> S = numpy.random.randn(100, 2)
 	>>> C, r2 = miniball.get_bounding_ball(S)
 
-The center of the bounding ball is C, its radius is the square root of r2. 
-The input coordinates S can be integer, they will automatically cast to floating
+The center of the bounding ball is ``C``, its radius is the square root of ``r2``. 
+The input coordinates ``S`` can be integer, they will automatically cast to floating
 point internally.
 
 And that's it ! miniball does only one thing with one function.
+
+
+Result accuracy
+---------------
+
+Although the algorithm returns exact results in theory, in practice it returns
+result only exact up to a given precision. The ``epsilon`` keyword argument allows 
+to control that precision, it is set to 1e-7 by default.
+
+.. code-block:: pycon
+
+	>>> import numpy
+	>>> import miniball
+	>>> S = numpy.random.randn(100, 2)
+	>>> C, r2 = miniball.get_bounding_ball(S, epsilon=1e-7)
+
+
+
+Repeatability
+-------------
+
+The algorithm to compute bounding balls relies on a pseudo-random number generator.
+Although the algorithms return an exact solution, it is only exact up to the epsilon
+parameter. As a consequence, running the get_bounding_ball function twice on the same
+input might not return exactly the same output.
+
+By default, each call to ``get_bounding_ball`` pull out a new, freshly seeded 
+pseudo-random number generator. Therefore, if you wish to get repeatable results 
+from ``get_bounding_ball``, you have to (and only have to) pass the same pseudo-random 
+number generator, using with the ``rng`` keyword argument
+
+.. code-block:: pycon
+
+	>>> import numpy
+	>>> import miniball	
+	>>> S = numpy.random.randn(100, 2)	
+	>>> rng = numpy.random.RandomState(42)
+	>>> C, r2 = miniball.get_bounding_ball(S, rng = rng)
+
 
 Implementation notes
 ====================
