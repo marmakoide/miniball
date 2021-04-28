@@ -29,7 +29,7 @@ Requirements
 miniball 1.1 requires
 
 * Python 2.7, >=3.4
-* Numpy >= 1.7
+* Numpy >= 1.17
 
 Installation
 ============

@@ -65,7 +65,7 @@ setup(
     author="Alexandre Devert",
     author_email="marmakoide@hotmail.fr",
     url="https://github.com/marmakoide/miniball",
-    install_requires=["numpy>=1.7"],
+    install_requires=["numpy>=1.17"],
     tests_require=["pytest"],
     py_modules=["miniball"],
     description="Efficiently computes the smallest bounding ball of a point set, in arbitrary number of dimensions.",
