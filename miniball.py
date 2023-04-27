@@ -42,11 +42,11 @@ def get_circumsphere(S):
     """
 
     U = S[1:] - S[0]
-    B = numpy.sqrt(numpy.sum(U ** 2, axis=1))
+    B = numpy.sqrt(numpy.square(U).sum(axis=1))
     U /= B[:, None]
     B /= 2
     C = numpy.dot(numpy.linalg.solve(numpy.inner(U, U), B), U)
-    r2 = numpy.sum(C ** 2)
+    r2 = numpy.square(C).sum()
     C += S[0]
     return C, r2
 
@@ -79,7 +79,7 @@ def get_bounding_ball(S, epsilon=1e-7, rng=numpy.random.default_rng()):
 
     def circle_contains(D, p):
         c, r2 = D
-        return numpy.sum((p - c) ** 2) <= r2
+        return numpy.square(p - c).sum() <= r2
 
     def get_boundary(R):
         if len(R) == 0:
@@ -89,7 +89,7 @@ def get_bounding_ball(S, epsilon=1e-7, rng=numpy.random.default_rng()):
             return get_circumsphere(S[R])
 
         c, r2 = get_circumsphere(S[R[: S.shape[1] + 1]])
-        if numpy.all(numpy.fabs(numpy.sum((S[R] - c) ** 2, axis=1) - r2) < epsilon):
+        if numpy.all(numpy.fabs(numpy.square(S[R] - c).sum(axis=1) - r2) < epsilon):
             return c, r2
 
     class Node(object):
