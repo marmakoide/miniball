@@ -26,7 +26,7 @@ This project is licensed under the MIT License
 Requirements
 ============
 
-miniball 1.1 requires
+miniball 1.2 requires
 
 * Python >= 3.5
 * Numpy >= 1.17
@@ -114,6 +114,7 @@ The algorithm, although often presented in its recursive form, is here implement
 in an iterative fashion. Python have an hard-coded recursion limit, therefore
 a recursive implementation of Welzl's algorithm would have an artificially limited
 number of point it could process.
+
 
 Authors
 =======
