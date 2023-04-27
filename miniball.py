@@ -109,8 +109,9 @@ def get_bounding_ball(S, epsilon=1e-7, rng=numpy.random.default_rng()):
             if len(node.P) == 0 or len(node.R) >= S.shape[1] + 1:
                 node.D = get_boundary(node.R)
             elif node.left is None:
-                node.pivot = rng.choice(node.P)
-                node.left = Node(list(set(node.P) - set([node.pivot])), node.R)
+                pivot_index = rng.integers(len(node.P))
+                node.pivot = node.P[pivot_index]
+                node.left = Node(node.P[:pivot_index] + node.P[pivot_index + 1:], node.R)
                 stack.extend((node, node.left))
             elif node.right is None:
                 if circle_contains(node.left.D, S[node.pivot]):
@@ -123,6 +124,6 @@ def get_bounding_ball(S, epsilon=1e-7, rng=numpy.random.default_rng()):
                 node.left, node.right = None, None
 
     S = S.astype(float, copy=False)
-    root = Node(range(S.shape[0]), [])
+    root = Node(list(range(S.shape[0])), [])
     traverse(root)
     return root.D
