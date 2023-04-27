@@ -95,6 +95,15 @@ number generator, using with the ``rng`` keyword argument
 	>>> C, r2 = miniball.get_bounding_ball(S, rng = rng)
 
 
+Duplicated input points
+-----------------------
+
+Duplicated input points might trigger failures. This implementation do not check 
+for duplicated input points, the guaranty of non-duplication is defered to you, the
+programmer. This is by design, to avoid to pay the cost of de-duplication when we
+are sure that the input has no duplicates.
+
+
 Implementation notes
 ====================
 
