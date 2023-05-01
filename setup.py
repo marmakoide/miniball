@@ -8,8 +8,8 @@
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
 #
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
 #
 # THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -68,7 +68,8 @@ setup(
     install_requires=["numpy>=1.17"],
     tests_require=["pytest"],
     py_modules=["miniball"],
-    description="Efficiently computes the smallest bounding ball of a point set, in arbitrary number of dimensions.",
+    description="""Efficiently computes the smallest bounding ball of a point
+                   set, in arbitrary number of dimensions.""",
     long_description=miniball_long_description,
     license="MIT",
     classifiers=miniball_classifiers,

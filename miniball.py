@@ -8,8 +8,8 @@
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
 #
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -61,11 +61,11 @@ def get_bounding_ball(S, epsilon=1e-7, rng=numpy.random.default_rng()):
             The input points
 
     epsilon : float
-            Tolerance used when testing if a set of point belongs to the same sphere.
-            Default is 1e-7
+            Tolerance used when testing if a set of point belongs to the same
+            sphere. Default is 1e-7
 
     rng : numpy.random.Generator
-        Pseudo-random number generator used internally. Default is the one default
+        Pseudo-random number generator used internally. Default is the default
         one provided by numpy.
 
     Returns
@@ -89,7 +89,9 @@ def get_bounding_ball(S, epsilon=1e-7, rng=numpy.random.default_rng()):
             return get_circumsphere(S[R])
 
         c, r2 = get_circumsphere(S[R[: S.shape[1] + 1]])
-        if numpy.all(numpy.fabs(numpy.square(S[R] - c).sum(axis=1) - r2) < epsilon):
+        if numpy.all(
+            numpy.fabs(numpy.square(S[R] - c).sum(axis=1) - r2) < epsilon
+        ):
             return c, r2
 
     class Node(object):
@@ -111,7 +113,10 @@ def get_bounding_ball(S, epsilon=1e-7, rng=numpy.random.default_rng()):
             elif node.left is None:
                 pivot_index = rng.integers(len(node.P))
                 node.pivot = node.P[pivot_index]
-                node.left = Node(node.P[:pivot_index] + node.P[pivot_index + 1:], node.R)
+                node.left = Node(
+                    node.P[:pivot_index] + node.P[pivot_index + 1:],
+                    node.R
+                )
                 stack.extend((node, node.left))
             elif node.right is None:
                 if circle_contains(node.left.D, S[node.pivot]):

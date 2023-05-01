@@ -8,8 +8,8 @@
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
 #
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -25,7 +25,6 @@ import miniball
 
 def test_repeatability():
     # Check that we can have repeatable results when providing the RNG
-    epsilon = 1e-5
     rng_seed = 42
 
     S = numpy.random.randn(100, 2)
@@ -63,8 +62,11 @@ def test_bounding_ball_contains_point_set():
             # Get the bounding sphere
             C, r2 = miniball.get_bounding_ball(S)
 
-            # Check that all points are inside the bounding sphere up to machine precision
-            assert numpy.all(numpy.square(S - C).sum(axis=1) - r2 < 1e-12)
+            # Check that all points are inside the bounding sphere up to
+            # machine precision
+            assert numpy.all(
+                numpy.square(S - C).sum(axis=1) - r2 < 1e-12
+            )
 
 
 def test_bounding_ball_optimality():
@@ -88,7 +90,7 @@ def test_bounding_ball_optimality():
                 numpy.concatenate([S, S_support], axis=0)
             )
 
-            # Check that the bounding sphere and the support sphere are equivalent
-            # up to machine precision.
+            # Check that the bounding sphere and the support sphere are
+            # equivalent up to machine precision.
             assert numpy.allclose(r2, r2_support)
             assert numpy.allclose(C, C_support)
