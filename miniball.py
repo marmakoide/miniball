@@ -23,7 +23,7 @@ import numpy
 
 
 __author__ = "Alexandre Devert <marmakoide@hotmail.fr>"
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 
 def get_circumsphere(S):
